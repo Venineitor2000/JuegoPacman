@@ -16,13 +16,6 @@ public class PuntuacionPlayer : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        Debug.Log(record.ToString("F2"));
-        Debug.Log(record);
-        Debug.Log((int)(record * 100));
-    }
-
     public string GetTimeRecordInString()
     {
         return record.ToString("F2");

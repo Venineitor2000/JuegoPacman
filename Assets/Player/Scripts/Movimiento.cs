@@ -48,7 +48,7 @@ public class Movimiento : MonoBehaviour
 
         if (ComprobarSuelo() && bufferPendingJump && startBuffer + coldownBuffer > Time.time)
             Saltar();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             bufferPendingJump = true;
             startBuffer = Time.time;
@@ -71,7 +71,7 @@ public class Movimiento : MonoBehaviour
 
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
         {
             endedJumpEarly = true;
             tiempoEnElAire = coyoteTimeduration + 1;

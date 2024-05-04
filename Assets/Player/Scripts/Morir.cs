@@ -11,7 +11,9 @@ public class Morir : MonoBehaviour
     [SerializeField] BoxCollider2D boxCollider;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Animator animator;
+    [SerializeField] ManagerFantasmas managerFantasmas;
     public UnityEvent OnPlayerDie = new UnityEvent();
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Pacman"))
@@ -23,7 +25,7 @@ public class Morir : MonoBehaviour
             rb.Sleep();
             animator.enabled = true; //Despues cuando haya mas animaciones ya lo tendriamos activo siempre y cambiariamos sus estados
             OnPlayerDie?.Invoke();
-            
+            managerFantasmas.GenerarFantasma(transform.position);
         }
     }
 
