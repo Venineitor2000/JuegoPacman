@@ -7,6 +7,7 @@ public class Cronometro : MonoBehaviour
     [SerializeField] TextMeshProUGUI text;
     float startTime;
     float time;
+    bool detenido;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +17,22 @@ public class Cronometro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (detenido)
+            return;
         time = Time.time - startTime;
         text.text = time.ToString("F2");
 
 
     }
 
+    public float GetTime()
+    {
+        return time;
+    }
+
+    public void Detener()
+    {
+        detenido = true;
+    }
     
 }

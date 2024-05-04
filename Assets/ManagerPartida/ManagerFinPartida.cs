@@ -1,3 +1,4 @@
+using LeaderboardCreatorDemo;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +10,13 @@ public class ManagerFinPartida : MonoBehaviour
     [SerializeField] GameObject cartelDerrota, cartelVictoria;
     [SerializeField] Pacman pacman;
     [SerializeField] Movimiento player;
+    [SerializeField] PuntuacionPlayer puntuacionPlayer;
+    [SerializeField] Cronometro cronometro;
+    [SerializeField] LeaderboardManager leaderboardManager;
     public void FinalizarPartidaPorMuerte()
     {
         cartelDerrota.SetActive(true);
+        cronometro.Detener();
         Invoke("ReiniciarJuego", delayTrasMuertePlayer);
     }
 
@@ -20,12 +25,20 @@ public class ManagerFinPartida : MonoBehaviour
         Time.timeScale = 0;
         pacman.DetenerPermanente();
         player.DetenerPermanente();
+        leaderboardManager.Desbloquear();
         cartelVictoria.SetActive(true);
+        cronometro.Detener();
+        ValidarRecordSuperado();
     }
 
     public void ReiniciarJuego()
     {
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
+    }
+
+    void ValidarRecordSuperado()
+    {
+        puntuacionPlayer.UpdatePuntuacion();
     }
 }
