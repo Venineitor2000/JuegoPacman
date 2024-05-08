@@ -14,6 +14,7 @@ public class Pacman : MonoBehaviour
     float maxAceleracion;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Animator animator;
+    [SerializeField] Sprite spriteMuerto;
     private void Update()
     {
         transform.position = new Vector3(player.position.x, transform.position.y, transform.position.z);
@@ -56,6 +57,7 @@ public class Pacman : MonoBehaviour
         spriteRenderer.color = Color.cyan;
         animator.enabled = false;
         detenidoPermanente = true;
+        spriteRenderer.sprite = spriteMuerto;
         rb.velocity = Vector2.zero;
     }
 }

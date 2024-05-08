@@ -23,7 +23,7 @@ public class Morir : MonoBehaviour
             boxCollider.enabled = false;
             rb.gravityScale = 0;
             rb.Sleep();
-            animator.enabled = true; //Despues cuando haya mas animaciones ya lo tendriamos activo siempre y cambiariamos sus estados
+            animator.SetTrigger("Morir");
             OnPlayerDie?.Invoke();
             managerFantasmas.GenerarFantasma(transform.position);
         }
