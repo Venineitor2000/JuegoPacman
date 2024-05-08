@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Hielo : MonoBehaviour
 {
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] BoxCollider2D boxCollider;
+    [SerializeField] GameObject sprite;
     static Pacman pacman;
 
     private void Start()
@@ -17,7 +20,15 @@ public class Hielo : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             pacman.Congelar();
-            Destroy(gameObject);
+            sprite.SetActive(false);
+            audioSource.Play();
+            boxCollider.enabled = false;
+            Invoke("DestroyHelado", 1f);
         }
+    }
+
+    void DestroyHelado()
+    {
+        Destroy(gameObject);
     }
 }

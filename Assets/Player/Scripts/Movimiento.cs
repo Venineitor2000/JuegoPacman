@@ -18,6 +18,7 @@ public class Movimiento : MonoBehaviour
     float startBuffer;
     bool detenidoPermanente;
     [SerializeField] SpriteRenderer sprite;
+    [SerializeField] AudioSource audioSalto;
     // Start is called before the first frame update
     void Start()
     {
@@ -137,6 +138,7 @@ public class Movimiento : MonoBehaviour
         CorregirPosicionPlayerAlChocarEsquina();
         bufferPendingJump = false;
         rb.velocity = new Vector2(rb.velocity.y, speedSalto);
+        audioSalto.Play();
     }
 
     void CorregirPosicionPlayerAlChocarEsquina()
