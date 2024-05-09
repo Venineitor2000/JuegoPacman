@@ -13,6 +13,7 @@ public class ManagerFinPartida : MonoBehaviour
     [SerializeField] PuntuacionPlayer puntuacionPlayer;
     [SerializeField] Cronometro cronometro;
     [SerializeField] LeaderboardManager leaderboardManager;
+    [SerializeField] MiniLeaderBoardManager miniLeaderBoardManager;
     public void FinalizarPartidaPorMuerte()
     {
         cartelDerrota.SetActive(true);
@@ -28,6 +29,7 @@ public class ManagerFinPartida : MonoBehaviour
         leaderboardManager.Desbloquear();
         cartelVictoria.SetActive(true);
         cronometro.Detener();
+        miniLeaderBoardManager.gameObject.SetActive(false);
         ValidarRecordSuperado();
     }
 

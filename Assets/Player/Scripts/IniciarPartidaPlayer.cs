@@ -7,12 +7,14 @@ public class IniciarPartidaPlayer : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Movimiento movimiento;
     [SerializeField] float GravityScaleAnimacion = 1;
-    [SerializeField] IniciarMapa managerPartida;
+    [SerializeField] IniciarMapa managerPartidaMapa;
+    [SerializeField] IniciarPacman managerPartidaPacman;
     float gravityScaleOriginal;
+    [SerializeField] Cronometro cronometro;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb.WakeUp();
         gravityScaleOriginal = rb.gravityScale;
         rb.gravityScale = GravityScaleAnimacion;
     }
@@ -29,7 +31,9 @@ public class IniciarPartidaPlayer : MonoBehaviour
         {
             rb.gravityScale = gravityScaleOriginal;
             movimiento.enabled = true;
-            managerPartida.Iniciar();
+            cronometro.Iniciar();
+            managerPartidaPacman.enabled = true;
+            managerPartidaMapa.Iniciar();
         }
     }
 

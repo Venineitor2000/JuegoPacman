@@ -15,7 +15,6 @@ public class ManagerFantasmas : MonoBehaviour
     {
         GameObject instancia = Instantiate(prefab, posicion, Quaternion.identity);
         fantasmas.Enqueue(instancia);
-        Debug.Log(fantasmas.Count > limiteFantasmas);
         if (fantasmas.Any() && fantasmas.Count > limiteFantasmas)
             {
             GameObject fantasmaEliminar = fantasmas.Dequeue();
