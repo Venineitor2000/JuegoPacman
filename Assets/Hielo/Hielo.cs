@@ -8,6 +8,7 @@ public class Hielo : MonoBehaviour
     [SerializeField] BoxCollider2D boxCollider;
     [SerializeField] GameObject sprite;
     static Pacman pacman;
+    [SerializeField] GameObject particulas;
 
     private void Start()
     {
@@ -22,8 +23,9 @@ public class Hielo : MonoBehaviour
             pacman.Congelar();
             sprite.SetActive(false);
             audioSource.Play();
+            particulas.SetActive(true);
             boxCollider.enabled = false;
-            Invoke("DestroyHelado", 1f);
+            Invoke("DestroyHelado", 1f);//Para que de tiempo al sonido y particulas de aparecer
         }
     }
 
