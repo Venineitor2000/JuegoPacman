@@ -14,6 +14,7 @@ public class ManagerFinPartida : MonoBehaviour
     [SerializeField] Cronometro cronometro;
     [SerializeField] LeaderboardManager leaderboardManager;
     [SerializeField] MiniLeaderBoardManager miniLeaderBoardManager;
+    [SerializeField] AudioSource musicaPacman;
     public void FinalizarPartidaPorMuerte()
     {
         cartelDerrota.SetActive(true);
@@ -30,6 +31,7 @@ public class ManagerFinPartida : MonoBehaviour
         cartelVictoria.SetActive(true);
         cronometro.Detener();
         miniLeaderBoardManager.gameObject.SetActive(false);
+        musicaPacman.enabled = false;
         ValidarRecordSuperado();
     }
 

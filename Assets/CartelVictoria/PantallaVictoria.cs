@@ -27,7 +27,10 @@ public class PantallaVictoria : MonoBehaviour
 
     void AbrirEscena()
     {
-        
+        if(managerFinPartida != null) 
         managerFinPartida.ReiniciarJuego();
     }
+
+
+    
 }

@@ -8,8 +8,11 @@ public class IniciarPacman : MonoBehaviour
     [SerializeField] float cdAparecerPacman;
     bool pacmanInvocado;
     [SerializeField] Pacman pacman;
-
-    
+    [SerializeField] AudioSource musicaPacman;
+    private void Start()
+    {
+        musicaPacman.enabled = true;
+    }
 
     private void Update()
     {
@@ -26,5 +29,7 @@ public class IniciarPacman : MonoBehaviour
             pacman.enabled = true;
         }
     }
+
+    
 
 }

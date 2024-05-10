@@ -157,6 +157,7 @@ public class Movimiento : MonoBehaviour
     public void DetenerPermanente()
     {
         rb.velocity = Vector3.zero;
+        rb.Sleep();
         detenidoPermanente = true;
     }
 
